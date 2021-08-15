@@ -1,4 +1,4 @@
-package com.ashwin.stai_project
+package com.ashwin.vote_app
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
