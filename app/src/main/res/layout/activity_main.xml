@@ -10,43 +10,43 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="432dp"
-        android:background="@color/black"
-        android:textColor="@color/black"
+        android:layout_width="191dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/round_shape_button"
+        android:text="Get Started"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SplashImage"
-        app:layout_constraintVertical_bias="0.23000002" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:layout_width="339dp"
-        android:layout_height="149dp"
+        android:id="@+id/textView"
+        android:layout_width="388dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="100dp"
         android:fontFamily="@font/roboto"
         android:text="@string/WelcomeText"
-        android:textAlignment="viewStart"
-        android:textSize="30dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorFontPrimary"
+        android:textSize="32sp"
         android:textStyle="bold"
         android:typeface="normal"
-        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SplashImage"
-        app:layout_constraintVertical_bias="0.501" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/SplashImage"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="355dp"
+        android:layout_height="314dp"
         android:src="@drawable/ballot_box"
-        android:tint="@color/white"
+        android:tint="@color/colorFontPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 </android.support.constraint.ConstraintLayout>
