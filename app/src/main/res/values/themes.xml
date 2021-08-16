@@ -8,4 +8,5 @@
     <color name="colorFontPrimary">@color/black</color>
     <color name="colorSecondary">@color/white</color>
     <color name="colorPrimary">@color/light_blue</color>
+    <color name="fontBackColor">@color/grey</color>
 </resources>

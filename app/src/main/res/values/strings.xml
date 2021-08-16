@@ -3,5 +3,10 @@
     <string name="WelcomeText">A BALLOT IS STRONGER THAN A BULLET</string>
     <string name="get_started_button_text">Get Started</string>
     <string name="ballot_box_icon_description">Ballot Box</string>
-    <string name="login_text">LOGIN</string>
+    <string name="login_text">Login</string>
+    <string name="email">EMAIL</string>
+    <string name="enter_email">Enter your Email here</string>
+    <string name="otp">Send OTP</string>
+    <string name="otp_success">OTP Sent, Check your Email</string>
+    <string name="otp_check">Verify</string>
 </resources>

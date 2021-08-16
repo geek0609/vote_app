@@ -1,20 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="396dp"
         android:layout_height="104dp"
         android:text="@string/login_text"
         android:textAlignment="center"
+        android:textColor="@color/colorFontPrimary"
         android:textSize="60sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/email"
+        android:textColor="@color/colorFontPrimary"
+        android:textSize="45sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/colorFontPrimary"/>
+        app:layout_constraintVertical_bias="0.29000002"/>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="335dp"
+        android:layout_height="52dp"
+        android:background="@drawable/round_shape_text"
+        android:gravity="center"
+        android:hint="@string/enter_email"
+        app:layout_constraintBottom_toTopOf="@+id/otp_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.32"
+        android:maxLines="1"
+        android:autofillHints="@string/enter_email"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/colorSecondary"/>
+
+    <Button
+        android:id="@+id/otp_button"
+        android:layout_width="170dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/round_shape_button"
+        android:text="@string/otp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.22000003" />
+
+
+    <EditText
+        android:id="@+id/enter_otp"
+        android:layout_width="202dp"
+        android:layout_height="52dp"
+        android:autofillHints="@string/enter_email"
+        android:background="@drawable/round_shape_text"
+        android:gravity="center"
+        android:hint="Enter OTP"
+        android:inputType="numberPassword"
+        android:maxLines="1"
+        android:textColor="@color/colorSecondary"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/otp_check_button"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otp_button"
+        app:layout_constraintVertical_bias="0.13" />
+
+    <Button
+        android:id="@+id/otp_check_button"
+        android:layout_width="133dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="28dp"
+        android:background="@drawable/round_shape_button"
+        android:text="@string/otp_check"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/enter_otp"
+        app:layout_constraintTop_toBottomOf="@+id/otp_button"
+        app:layout_constraintVertical_bias="0.13" />
+
+    
+
 </android.support.constraint.ConstraintLayout>
