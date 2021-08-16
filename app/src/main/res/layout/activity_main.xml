@@ -9,12 +9,12 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/get_started_button"
         android:layout_width="191dp"
         android:layout_height="57dp"
         android:layout_marginBottom="100dp"
         android:background="@drawable/round_shape_button"
-        android:text="Get Started"
+        android:text="@string/get_started_button_text"
         android:textColor="@color/colorPrimary"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -34,7 +34,6 @@
         android:textStyle="bold"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,9 +43,11 @@
         android:layout_height="314dp"
         android:src="@drawable/ballot_box"
         android:tint="@color/colorFontPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/get_started_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:contentDescription="@string/ballot_box_icon_description" />
+
 </android.support.constraint.ConstraintLayout>
