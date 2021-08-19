@@ -103,6 +103,19 @@
         app:layout_constraintTop_toBottomOf="@+id/otp_button"
         app:layout_constraintVertical_bias="0.13" />
 
-    
-
+    <TextView
+        android:id="@+id/incorrectPassword"
+        android:layout_width="368dp"
+        android:layout_height="25dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/wrong_email_warning"
+        android:textAlignment="center"
+        android:textColor="@color/WarningRed"
+        android:textSize="16sp"
+        android:typeface="sans"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/otp_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 </android.support.constraint.ConstraintLayout>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Vote App</string>
+    <string name="app_name">VoteApp</string>
     <string name="WelcomeText">A BALLOT IS STRONGER THAN A BULLET</string>
     <string name="get_started_button_text">Get Started</string>
     <string name="ballot_box_icon_description">Ballot Box</string>
@@ -9,4 +9,5 @@
     <string name="otp">Send OTP</string>
     <string name="otp_success">OTP Sent, Check your Email</string>
     <string name="otp_check">Verify</string>
+    <string name="wrong_email_warning">Email ID is wrong or does not belong to ISWK</string>
 </resources>
