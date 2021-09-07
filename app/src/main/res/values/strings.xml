@@ -4,7 +4,7 @@
     <string name="get_started_button_text">Get Started</string>
     <string name="ballot_box_icon_description">Ballot Box</string>
     <string name="login_text">Login</string>
-    <string name="email">EMAIL</string>
+    <string name="email">Sign into google with School Email ID</string>
     <string name="enter_email">Enter your Email here</string>
     <string name="otp">Send OTP</string>
     <string name="otp_success">OTP Sent, Check your Email</string>
