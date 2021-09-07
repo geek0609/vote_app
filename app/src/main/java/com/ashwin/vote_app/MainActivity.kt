@@ -22,14 +22,12 @@ class MainActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        val CurUser = mAuth.currentUser
-
         val text:TextView = findViewById(R.id.textView)
-
 
         button.setOnClickListener{
             val intent = Intent(this, login_page::class.java)
             startActivity(intent)
+            mAuth.signOut()
         }
     }
 }
