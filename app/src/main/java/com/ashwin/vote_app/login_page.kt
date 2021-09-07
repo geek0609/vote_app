@@ -4,6 +4,8 @@ import android.content.Intent
 import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.service.autofill.Validators.not
 import android.util.Log
 import android.view.Gravity
 import android.view.View
@@ -23,6 +25,7 @@ class login_page : AppCompatActivity() {
 
     private lateinit var mAuth : FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
+    private var isloggedin: Boolean = false
 
     companion object{
         private const val RC_SIGN_IN = 120
@@ -44,12 +47,16 @@ class login_page : AppCompatActivity() {
 
 
         val otaButton:Button = findViewById(R.id.otp_button)
-        val otpCheck:Button = findViewById(R.id.otp_check_button)
-        val otp:EditText = findViewById(R.id.enter_otp)
         otaButton.setOnClickListener{
-            signIn()
-            val text_view = findViewById<TextView>(R.id.textView2)
-            text_view.text = "nigOK"
+            if (!isloggedin) {
+                signIn()
+                val text_view = findViewById<TextView>(R.id.textView2)
+                text_view.text = "Working on it...."
+            } else
+            {
+                val text_view = findViewById<TextView>(R.id.textView2)
+                text_view.visibility = View.GONE
+            }
 
         }
     }
@@ -103,6 +110,20 @@ class login_page : AppCompatActivity() {
                     val text_view = findViewById<TextView>(R.id.textView2)
                     if (user != null) {
                         text_view.text = user.email.toString()
+                        if (!user.email.toString().endsWith("@iswkoman.com")){
+                            Log.w("SignInActivity", "signInWithCredential:not ISWK Org")
+                            val text_view = findViewById<TextView>(R.id.textView2)
+                            text_view.text = "Your email is: \n" + user.email.toString() + "\nThis is not a iswkoman.com email\nClear app data and reopen the app "
+                            user.delete()
+                            mAuth.signOut()
+                        } else{
+                            Log.v("SignInActivity", "Successfully authorised")
+                            val text_view = findViewById<TextView>(R.id.textView2)
+                            text_view.text = "Your email is: \n" + user.email.toString() + "\nIf email is incorrect, clear data of the app and reopen the app"
+                            val otaButton:Button = findViewById(R.id.otp_button)
+                            otaButton.text = "Start"
+                            isloggedin = true
+                        }
                     }
                 } else {
                     // If sign in fails, display a message to the user.
