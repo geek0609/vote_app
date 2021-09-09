@@ -25,9 +25,9 @@ class MainActivity : AppCompatActivity() {
         val text:TextView = findViewById(R.id.textView)
 
         button.setOnClickListener{
+            mAuth.signOut()
             val intent = Intent(this, login_page::class.java)
             startActivity(intent)
-            mAuth.signOut()
         }
     }
 }

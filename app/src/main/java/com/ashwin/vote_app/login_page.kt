@@ -54,8 +54,9 @@ class login_page : AppCompatActivity() {
                 text_view.text = "Working on it...."
             } else
             {
-                val text_view = findViewById<TextView>(R.id.textView2)
-                text_view.visibility = View.GONE
+                val updootinfo = Intent(this, updateInfo::class.java)
+                startActivity(updootinfo)
+                finish()
             }
 
         }
@@ -121,7 +122,7 @@ class login_page : AppCompatActivity() {
                             val text_view = findViewById<TextView>(R.id.textView2)
                             text_view.text = "Your email is: \n" + user.email.toString() + "\nIf email is incorrect, clear data of the app and reopen the app"
                             val otaButton:Button = findViewById(R.id.otp_button)
-                            otaButton.text = "Start"
+                            otaButton.text = getString(R.string.Start)
                             isloggedin = true
                         }
                     }

@@ -42,7 +42,7 @@
         android:layout_width="355dp"
         android:layout_height="314dp"
         android:src="@drawable/ballot_box"
-        android:tint="@color/colorFontPrimary"
+        app:tint="@color/colorFontPrimary"
         app:layout_constraintBottom_toTopOf="@+id/get_started_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
