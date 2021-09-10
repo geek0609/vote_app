@@ -1,31 +1,28 @@
 package com.ashwin.vote_app
 
 import android.content.Intent
-import android.opengl.Visibility
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.service.autofill.Validators.not
 import android.util.Log
-import android.view.Gravity
-import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import org.w3c.dom.Text
+import java.lang.StringBuilder
+
 
 class login_page : AppCompatActivity() {
 
     private lateinit var mAuth : FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
     private var isloggedin: Boolean = false
+    private lateinit var mail_id : String
 
     companion object{
         private const val RC_SIGN_IN = 120
@@ -44,8 +41,6 @@ class login_page : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-
-
         val otaButton:Button = findViewById(R.id.otp_button)
         otaButton.setOnClickListener{
             if (!isloggedin) {
@@ -55,10 +50,15 @@ class login_page : AppCompatActivity() {
             } else
             {
                 val updootinfo = Intent(this, updateInfo::class.java)
+                Toast.makeText(applicationContext, mail_id, Toast.LENGTH_LONG)
                 startActivity(updootinfo)
-                finish()
             }
 
+        }
+
+        val signoutbutton:Button = findViewById(R.id.signout_button)
+        signoutbutton.setOnClickListener{
+            signOut()
         }
     }
 
@@ -114,16 +114,19 @@ class login_page : AppCompatActivity() {
                         if (!user.email.toString().endsWith("@iswkoman.com")){
                             Log.w("SignInActivity", "signInWithCredential:not ISWK Org")
                             val text_view = findViewById<TextView>(R.id.textView2)
-                            text_view.text = "Your email is: \n" + user.email.toString() + "\nThis is not a iswkoman.com email\nClear app data and reopen the app "
-                            user.delete()
-                            mAuth.signOut()
+                            var displayedText  = StringBuilder()
+                            displayedText.append(getString(R.string.Email_Preview)).append("\n").append(user.email.toString()).append("\n").append(getString(R.string.notISWK)).append("\n").append(getString(R.string.Close_Reopen))
+                            text_view.text = displayedText
                         } else{
                             Log.v("SignInActivity", "Successfully authorised")
                             val text_view = findViewById<TextView>(R.id.textView2)
-                            text_view.text = "Your email is: \n" + user.email.toString() + "\nIf email is incorrect, clear data of the app and reopen the app"
+                            var displayedText  = StringBuilder()
+                            displayedText.append(getString(R.string.Email_Preview)).append("\n").append(user.email.toString()).append("\n").append(getString(R.string.Close_Reopen))
+                            text_view.text = displayedText
                             val otaButton:Button = findViewById(R.id.otp_button)
                             otaButton.text = getString(R.string.Start)
                             isloggedin = true
+                            this.mail_id = user.email.toString()
                         }
                     }
                 } else {
@@ -133,5 +136,12 @@ class login_page : AppCompatActivity() {
                     text_view.text = "Not: OK"
                 }
             }
+    }
+
+    private fun signOut() {
+        googleSignInClient.signOut()
+            .addOnCompleteListener(this, OnCompleteListener<Void?> {
+
+            })
     }
 }

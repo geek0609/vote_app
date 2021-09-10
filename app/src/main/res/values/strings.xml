@@ -5,7 +5,7 @@
     <string name="ballot_box_icon_description">Ballot Box</string>
     <string name="login_text">Login</string>
     <string name="email">Sign into google with School Email ID</string>
-    <string name="otp">Send OTP</string>
+    <string name="otp">Sign In</string>
     <string name="otp_success">OTP Sent, Check your Email</string>
     <string name="otp_check">Verify</string>
     <string name="wrong_email_warning">Email ID is wrong or does not belong to ISWK</string>
@@ -18,4 +18,9 @@
     <string name="entersection_hint">Enter your section</string>
     <string name="entergrade">Class : </string>
     <string name="entergrade_hint">Enter your class</string>
+    <string name="Email_Preview">Your Email is:</string>
+    <string name="Close_Reopen">If this is not you, click Sign Out</string>
+    <string name="notISWK">This Email does not belong to ISWK</string>
+    <string name="signout">Sign Out</string>
+    <string name="SignInToast">Signing in as\n</string>
 </resources>
