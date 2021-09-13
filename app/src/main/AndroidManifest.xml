@@ -11,6 +11,7 @@
         android:theme="@style/Theme.STAI_Project">
         <activity android:name=".login_page"/>
         <activity android:name=".updateInfo"/>
+        <activity android:name=".VoteScreen"/>
         <activity
             android:name="com.ashwin.vote_app.MainActivity"
             android:exported="true" >

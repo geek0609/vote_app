@@ -1,5 +1,6 @@
 package com.ashwin.vote_app
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -67,6 +68,8 @@ class updateInfo : AppCompatActivity() {
 
             if (noIssues){
                 uploadInfo(email, name, grade, sec, id)
+                val intent = Intent(this, VoteScreen::class.java)
+                startActivity(intent)
             }
 
 

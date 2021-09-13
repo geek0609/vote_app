@@ -36,13 +36,12 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.firebase:firebase-auth:19.2.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
-    // Declare the dependency for the Firebase Authentication library
-
-    // Also declare the dependency for the Google Play services library and specify its version
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
+    implementation("androidx.recyclerview:recyclerview-selection:1.1.0")
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
     implementation platform('com.google.firebase:firebase-bom:28.4.0')
     implementation 'com.google.firebase:firebase-database-ktx:20.0.1'

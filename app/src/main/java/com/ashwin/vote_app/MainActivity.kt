@@ -22,8 +22,6 @@ class MainActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        val text:TextView = findViewById(R.id.textView)
-
         button.setOnClickListener{
             val intent = Intent(this, login_page::class.java)
             startActivity(intent)

@@ -32,6 +32,8 @@ class login_page : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_page)
 
+        Log.i(this.toString(),"LoginPage init")
+
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -87,8 +89,6 @@ class login_page : AppCompatActivity() {
                 } catch (e: ApiException) {
                     // Google Sign In failed, update UI appropriately
                     Log.w("SignInActivity", "Google sign in failed", e)
-                    val text_view = findViewById<TextView>(R.id.textView2)
-                    text_view.text = "Not: OK1"
                 }
             }
             else{
@@ -133,15 +133,13 @@ class login_page : AppCompatActivity() {
                     // If sign in fails, display a message to the user.
                     Log.w("SignInActivity", "signInWithCredential:failure", task.exception)
                     val text_view = findViewById<TextView>(R.id.textView2)
-                    text_view.text = "Not: OK"
+                    text_view.text = task.exception.toString()
                 }
             }
     }
 
     private fun signOut() {
         googleSignInClient.signOut()
-            .addOnCompleteListener(this, OnCompleteListener<Void?> {
-
-            })
+            .addOnCompleteListener(this, OnCompleteListener<Void?> {})
     }
 }
