@@ -20,7 +20,7 @@
     <string name="entergrade_hint">Enter your class</string>
     <string name="Email_Preview">Your Email is:</string>
     <string name="Close_Reopen">If this is not you, click Sign Out</string>
-    <string name="notISWK">This Email does not belong to ISWK</string>
+    <string name="notISWK">This Email does not belong to School</string>
     <string name="signout">Sign Out</string>
     <string name="SignInToast">Signing in as\n</string>
     <string name="votePage">CAST YOUR VOTE</string>

@@ -52,7 +52,7 @@ class login_page : AppCompatActivity() {
             } else
             {
                 val updootinfo = Intent(this, updateInfo::class.java)
-                Toast.makeText(applicationContext, mail_id, Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext,  "TESTMODE:EMAIL HIDDEN" , Toast.LENGTH_LONG).show()
                 startActivity(updootinfo)
             }
 
@@ -115,13 +115,13 @@ class login_page : AppCompatActivity() {
                             Log.w("SignInActivity", "signInWithCredential:not ISWK Org")
                             val text_view = findViewById<TextView>(R.id.textView2)
                             var displayedText  = StringBuilder()
-                            displayedText.append(getString(R.string.Email_Preview)).append("\n").append(user.email.toString()).append("\n").append(getString(R.string.notISWK)).append("\n").append(getString(R.string.Close_Reopen))
+                            displayedText.append(getString(R.string.Email_Preview)).append("\n").append("TESTMODE: EMAIL HIDDEN").append("\n").append(getString(R.string.notISWK)).append("\n").append(getString(R.string.Close_Reopen))
                             text_view.text = displayedText
                         } else{
                             Log.v("SignInActivity", "Successfully authorised")
                             val text_view = findViewById<TextView>(R.id.textView2)
                             var displayedText  = StringBuilder()
-                            displayedText.append(getString(R.string.Email_Preview)).append("\n").append(user.email.toString()).append("\n").append(getString(R.string.Close_Reopen))
+                            displayedText.append(getString(R.string.Email_Preview)).append("\n").append("TESTMODE: EMAIL HIDDEN").append("\n").append(getString(R.string.Close_Reopen))
                             text_view.text = displayedText
                             val otaButton:Button = findViewById(R.id.otp_button)
                             otaButton.text = getString(R.string.Start)

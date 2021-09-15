@@ -115,7 +115,7 @@ class updateInfo : AppCompatActivity() {
     }
 
     fun uploadInfo(email:String, name:String, grade:Int, section:String, id:String, alreadyVoted:String){
-        Toast.makeText(applicationContext, getString(R.string.SignInToast)+ email, Toast.LENGTH_LONG).show()
+        Toast.makeText(applicationContext, getString(R.string.SignInToast)+ "TESTMODE:EMAIL HIDDEN", Toast.LENGTH_LONG).show()
         val DBRef = database.getReference("user")
         val user = User(email, name, grade, section, alreadyVoted)
         DBRef.child(id).setValue(user)
