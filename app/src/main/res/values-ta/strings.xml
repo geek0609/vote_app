@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">வாக்கு மென்பொருள்</string>
+    <string name="WelcomeText">ஒரு வாகு ஒரு தோட்டாவை விட வலுவானது</string>
+    <string name="get_started_button_text">தொடங்க</string>
+    <string name="ballot_box_icon_description">Ballot Box</string>
+    <string name="login_text">உள்நுழைய</string>
+    <string name="email">Google இல் உள்நுழைய பள்ளி பயனர்பெயரைப் பயன்படுத்தவும்</string>
+    <string name="otp">உள்நுழைக</string>
+    <string name="otp_success">OTP Sent, Check your Email</string>
+    <string name="otp_check">Verify</string>
+    <string name="wrong_email_warning">பயனர்பெயர் பள்ளிக்கு சொந்தமானது அல்ல</string>
+    <string name="Start">தொடங்கு</string>
+    <string name="Update_Info">புதுப்பி</string>
+    <string name="UpdateInfo_heading">உங்கள் தகவலைப்\nபுதுப்பிக்கவும்</string>
+    <string name="entername">பெயர் :</string>
+    <string name="entername_hint">உங்கள் பெயரை உள்ளிடவும்</string>
+    <string name="entersection">பிரிவு :</string>
+    <string name="entersection_hint">உங்கள் பிரிவில் நுழையுங்கள்</string>
+    <string name="entergrade">வகுப்பு : </string>
+    <string name="entergrade_hint">உங்கள் வகுப்பு நுழையுங்கள்</string>
+    <string name="Email_Preview">உங்கள் பயனர்பெயர்:</string>
+    <string name="Close_Reopen">இது நீங்கள் இல்லையென்றால், வெளியேறு என்பதைக் கிளிக் செய்யவும்</string>
+    <string name="notISWK">இந்த மின்னஞ்சல் பள்ளிக்கு சொந்தமானது அல்ல</string>
+    <string name="signout">வெளியேறு</string>
+    <string name="SignInToast">உள்நுழைக \n</string>
+    <string name="votePage">உங்கள் வாக்கை அளியுங்கள்</string>
+    <string name="vote">வாக்களிக்கவும்</string>
+    <string name="vote_confirm">Are you sure?\nClick once again to confirm</string>
+    <string name="VoteBoxDesc">VoteBox</string>
+    <string name="alreadyVotedWarn">நீங்கள் ஏற்கனவே\nவாக்களித்து விட்டீர்கள்</string>
+    <string name="voteRecorded">உங்கள் வாக்கு பதிவு\nசெய்யப்பட்டது</string>
+    <string name="checkDesc">CheckMark</string>
+</resources>
