@@ -8,7 +8,7 @@
     <string name="otp">Sign In</string>
     <string name="otp_success">OTP Sent, Check your Email</string>
     <string name="otp_check">Verify</string>
-    <string name="wrong_email_warning">Email ID is wrong or does not belong to ISWK</string>
+    <string name="wrong_email_warning">Email ID is wrong or does not belong to School</string>
     <string name="Start">Start</string>
     <string name="Update_Info">Update</string>
     <string name="UpdateInfo_heading">UPDATE YOUR\nINFORMATION</string>
@@ -23,4 +23,11 @@
     <string name="notISWK">This Email does not belong to ISWK</string>
     <string name="signout">Sign Out</string>
     <string name="SignInToast">Signing in as\n</string>
+    <string name="votePage">CAST YOUR VOTE</string>
+    <string name="vote">Vote</string>
+    <string name="vote_confirm">Are you sure?\nClick once again to confirm</string>
+    <string name="VoteBoxDesc">VoteBox</string>
+    <string name="alreadyVotedWarn">You have already voted!\nWait for reset by Admin</string>
+    <string name="voteRecorded">Your Vote is\nSuccessfully Recorded</string>
+    <string name="checkDesc">CheckMark</string>
 </resources>

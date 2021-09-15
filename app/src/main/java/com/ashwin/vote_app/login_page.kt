@@ -52,7 +52,7 @@ class login_page : AppCompatActivity() {
             } else
             {
                 val updootinfo = Intent(this, updateInfo::class.java)
-                Toast.makeText(applicationContext, mail_id, Toast.LENGTH_LONG)
+                Toast.makeText(applicationContext, mail_id, Toast.LENGTH_LONG).show()
                 startActivity(updootinfo)
             }
 

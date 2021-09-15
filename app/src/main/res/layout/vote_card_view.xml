@@ -6,29 +6,55 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="5dp"
     app:cardElevation="8dp"
-    app:cardBackgroundColor="@color/colorPrimary">
-    <RelativeLayout
+    app:cardBackgroundColor="@color/colorPrimary"
+    android:layout_marginBottom="40sp">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/vote_title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
             android:gravity="center"
+            android:text="name"
             android:textColor="@color/colorFontPrimary"
             android:textSize="30sp"
-            android:id="@+id/vote_title"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="30sp"/>
 
         <TextView
-            android:layout_below="@+id/vote_title"
-            android:layout_width="match_parent"
+            android:id="@+id/vote_desc"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/vote_title"
             android:fontFamily="@font/roboto"
             android:gravity="center"
+            android:text="desc"
             android:textColor="@color/colorFontPrimary"
             android:textSize="20sp"
-            android:id="@+id/vote_desc"/>
-    </RelativeLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vote_title"
+            android:layout_marginStart="30sp"/>
+
+        <Button
+            android:id="@+id/vote_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/vote_title"
+            android:text="@string/vote"
+            android:fontFamily="@font/roboto"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/round_shape_button"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginEnd="30sp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

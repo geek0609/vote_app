@@ -28,71 +28,80 @@ class updateInfo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.update_info)
-
         mAuth = FirebaseAuth.getInstance()
-        var currentUser = mAuth.currentUser
+        val currentUser = mAuth.currentUser
         val update_button: Button = findViewById(R.id.updateInfoButton)
         var noIssues:Boolean = true
-
+        var alreadyVoted = "0"
+        var name_prev: String
+        var class_prev: String
+        var sec_prev: String
+        val grade_entered: EditText = findViewById<EditText>(R.id.grade)
+        val name_entered: EditText= findViewById<EditText>(R.id.name)
+        val sec_entered: EditText = findViewById<EditText>(R.id.section)
         database.getReference("user").child(currentUser?.uid.toString()).get().addOnSuccessListener {
-            Log.i("firebase", "Got value ${it.value}")
-            Toast.makeText(applicationContext, it.value.toString(), Toast.LENGTH_LONG ).show()
+            val current_info = it
+            name_prev = current_info.child("name").value.toString()
+            if (name_prev == "null"){
+                Toast.makeText(applicationContext, "New User", Toast.LENGTH_LONG).show()
+            } else {
+                class_prev = current_info.child("grade").value.toString()
+                sec_prev = current_info.child("section").value.toString()
+                alreadyVoted = current_info.child("voted").value.toString()
+                name_entered.setText(name_prev)
+                grade_entered.setText(class_prev)
+                sec_entered.setText(sec_prev)
+                if (alreadyVoted == "1") {
+                    val intent_alreadyvoted = Intent(this, AlreadyVoted::class.java)
+                    startActivity(intent_alreadyvoted)
+                }
+            }
+
         }.addOnFailureListener{
-            Log.e("firebase", "Error getting data", it)
+            Log.i("firebase", "Error getting data", it)
         }
 
         update_button.setOnClickListener{
             val warningred = getColor(R.color.WarningRed)
             val primary_color = getColor(R.color.colorPrimary)
-
-            val name = findViewById<EditText>(R.id.name).text.toString()
-
+            val name = name_entered.text.toString()
             val entergrade: TextView =  findViewById<TextView>(R.id.entergrade)
-            val grade_entered: EditText = findViewById<EditText>(R.id.grade)
             val grade:Int = grade_entered.text.toString().toInt()
-            if (grade > 12) {
+            val sec = sec_entered.text.toString()
+            noIssues = if (grade > 12) {
                 entergrade.setTextColor(warningred)
-                entergrade.text = entergrade.text.toString() + " Enter value under 12"
-                noIssues = false
+                false
             } else {
                 entergrade.setTextColor(primary_color)
-                noIssues = true
-
+                true
             }
-
-            val sec = findViewById<EditText>(R.id.section).text.toString()
-
             val email:String = currentUser?.email.toString()
-
             val id:String = currentUser?.uid.toString()
-
             if (noIssues){
-                uploadInfo(email, name, grade, sec, id)
+                uploadInfo(email, name, grade, sec, id, alreadyVoted)
                 val intent = Intent(this, VoteScreen::class.java)
                 startActivity(intent)
             }
 
-
+            if (alreadyVoted == "1"){
+                Toast.makeText(this@updateInfo, "Already Voted", Toast.LENGTH_LONG).show()
+            }
         }
-
     }
     override fun onBackPressed() {
         finish()
     }
 
-
-    fun uploadInfo(email:String, name:String, grade:Int, section:String, id:String){
+    fun uploadInfo(email:String, name:String, grade:Int, section:String, id:String, alreadyVoted:String){
         Toast.makeText(applicationContext, getString(R.string.SignInToast)+ email, Toast.LENGTH_LONG).show()
         val DBRef = database.getReference("user")
-        val user = User(email, name, grade, section)
+        val user = User(email, name, grade, section, alreadyVoted)
         DBRef.child(id).setValue(user)
     }
-
-
 }
 
 @IgnoreExtraProperties
-data class User(val email: String, val name: String, val grade: Int, val section: String) {
+data class User(val email: String, val name: String, val grade: Int, val section: String, val voted:String) {
     // Null default values create a no-argument default constructor, which is needed
     // for deserialization from a DataSnapshot.
 }

@@ -11,13 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Vote Screen"
-        android:textSize="40sp"
+        android:text="@string/votePage"
+        android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:fontFamily="@font/roboto"
-        android:textColor="@color/colorFontPrimary"/>
+        android:textColor="@color/colorFontPrimary"
+        android:paddingTop="20sp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

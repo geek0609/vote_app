@@ -5,4 +5,5 @@
     <color name="light_blue">#C0DEEF</color>
     <color name="grey">#CC717171</color>
     <color name="WarningRed">#FF0000</color>
+    <color name="SuccessGreen">#4BB543</color>
 </resources>
