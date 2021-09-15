@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">वोट ऐप</string>
+    <string name="WelcomeText">एक मतपत्र एक गोली से ज्यादा ताकतवर होता है</string>
+    <string name="get_started_button_text">प्रारंभ करें</string>
+    <string name="ballot_box_icon_description">मतदान पेटी</string>
+    <string name="login_text">लॉग इन करें</string>
+    <string name="email">अपने विद्यालय की ईमेल आईडी से गूगल में लॉगिन करें</string>
+    <string name="otp">साइन इन करें</string>
+    <string name="otp_success">आपके ईमेल पर ओटीपी भेज दिया गया है, चेक करें</string>
+    <string name="otp_check">सत्यापित करें</string>
+    <string name="wrong_email_warning">ईमेल आईडी गलत है या विद्यालय से संबंधित नहीं है</string>
+    <string name="Start">शुरू करें</string>
+    <string name="Update_Info">अद्यतन करें</string>
+    <string name="UpdateInfo_heading">अपने जानकारी अपडेट करें</string>
+    <string name="entername">नाम:</string>
+    <string name="entername_hint">अपना नाम दर्ज करें</string>
+    <string name="entersection">अनुभाग :</string>
+    <string name="entersection_hint">अपना अनुभाग दर्ज करें</string>
+    <string name="entergrade">कक्षा : </string>
+    <string name="entergrade_hint">अपनी कक्षा दर्ज करें</string>
+    <string name="Email_Preview">अपना ईमेल दर्ज करें:</string>
+    <string name="Close_Reopen">यदि यह आप नहीं हैं, तो साइन आउट पर क्लिक करें</string>
+    <string name="notISWK">यह ईमेल विद्यालय का नहीं है</string>
+    <string name="signout">साइन आउट करें</string>
+    <string name="SignInToast">Signing in as\n</string>
+    <string name="votePage">अपना मत डालें</string>
+    <string name="vote">मत करें</string>
+    <string name="vote_confirm">Are you sure?\nClick once again to confirm</string>
+    <string name="VoteBoxDesc">वोटबॉक्स</string>
+    <string name="alreadyVotedWarn">आप पहले से ही वोट कर चुके हैं!\nव्यवस्थापक द्वारा रीसेट की प्रतीक्षा करें</string>
+    <string name="voteRecorded">आपका मत\nसफलतापूर्वक रिकॉर्ड किया गया है</string>
+    <string name="checkDesc">CheckMark</string>
+</resources>
