@@ -63,45 +63,62 @@ class VoteScreen:AppCompatActivity(), ItemClickListener {
     var votes_for_cand = 0
     override fun onItemClicked(textData: VoteModel, voteButton: Button) {
         // Toast.makeText(applicationContext, textData.getTitle().toString(), Toast.LENGTH_LONG).show()
-        if (isconfirmed && voted_id == textData.getID()){
+        if (isconfirmed && voted_id == textData.getID()) {
             // vote success
             val currentUser = mAuth.currentUser
-            database.getReference("user").child(currentUser?.uid.toString()).get().addOnSuccessListener {
-                val current_info = it
-                val alreadyVoted = current_info.child("voted").value.toString()
+            database.getReference("user").child(currentUser?.uid.toString()).get()
+                .addOnSuccessListener {
+                    val current_info = it
+                    val alreadyVoted = current_info.child("voted").value.toString()
 
-                if (alreadyVoted == "1") {
+                    if (alreadyVoted == "1") {
                         val intent_alreadyvoted = Intent(this, AlreadyVoted::class.java)
                         startActivity(intent_alreadyvoted)
-                }else{
-                database.getReference("candidate").child(textData.getID()).get().addOnSuccessListener {
-                val getInfo = it
-                votes_for_cand = Integer.parseInt(getInfo.child("votes").value.toString())
-                votes_for_cand += 1
-                database.getReference("candidate").child(textData.getID()).child("votes").setValue(votes_for_cand)
-                database.getReference("user").child(mAuth.currentUser?.uid.toString()).child("voted").setValue("1")
-                val intent_alreadyvoted = Intent(this, VoteOK::class.java)
-                startActivity(intent_alreadyvoted)
-            }
-                }
+                    } else {
+                        database.getReference("candidate").child(textData.getID()).get()
+                            .addOnSuccessListener {
+                                val getInfo = it
+                                votes_for_cand =
+                                    Integer.parseInt(getInfo.child("votes").value.toString())
+                                votes_for_cand += 1
+                                database.getReference("candidate").child(textData.getID())
+                                    .child("votes").setValue(votes_for_cand)
+                                database.getReference("user")
+                                    .child(mAuth.currentUser?.uid.toString()).child("voted")
+                                    .setValue("1")
+                                val intent_alreadyvoted = Intent(this, VoteOK::class.java)
+                                startActivity(intent_alreadyvoted)
+                            }
+                    }
 
-            }.addOnFailureListener{
+                }.addOnFailureListener {
                 Log.i("firebase", "Error getting data", it)
             }
-        }
-        else {
-            val confirmation = resources.getString(R.string.vote_confirm)
-            Toast.makeText(this@VoteScreen, confirmation, Toast.LENGTH_SHORT).show()
-            this.isconfirmed = true
-            this.voted_id = textData.getID()
-            voteButton.setTextColor(getColor(R.color.SuccessGreen))
-            if (tries!=0) {
-                previous_button.setTextColor(getColor(R.color.colorSecondary))
-            }
-            this.previous_button = voteButton
-            tries += 1
-        }
+        } else {
+            val currentUser = mAuth.currentUser
+            database.getReference("user").child(currentUser?.uid.toString()).get()
+                .addOnSuccessListener {
+                    val current_info = it
+                    val alreadyVoted = current_info.child("voted").value.toString()
+
+                    if (alreadyVoted == "1") {
+                        val intent_alreadyvoted = Intent(this, AlreadyVoted::class.java)
+                        startActivity(intent_alreadyvoted)
+                    } else {
+                        val confirmation = resources.getString(R.string.vote_confirm)
+                        Toast.makeText(this@VoteScreen, confirmation, Toast.LENGTH_SHORT).show()
+                        this.isconfirmed = true
+                        this.voted_id = textData.getID()
+                        voteButton.setTextColor(getColor(R.color.SuccessGreen))
+                        if (tries != 0) {
+                            previous_button.setTextColor(getColor(R.color.colorSecondary))
+                        }
+                        this.previous_button = voteButton
+                        tries += 1
+                    }
+                }
 
 
+        }
     }
 }
