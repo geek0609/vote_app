@@ -68,23 +68,45 @@ class updateInfo : AppCompatActivity() {
             val entergrade: TextView =  findViewById<TextView>(R.id.entergrade)
             val grade:Int = grade_entered.text.toString().toInt()
             val sec = sec_entered.text.toString()
-            noIssues = if (grade > 12) {
-                entergrade.setTextColor(warningred)
-                false
-            } else {
-                entergrade.setTextColor(primary_color)
-                true
-            }
-            val email:String = currentUser?.email.toString()
-            val id:String = currentUser?.uid.toString()
-            if (noIssues){
-                uploadInfo(email, name, grade, sec, id, alreadyVoted)
-                val intent = Intent(this, VoteScreen::class.java)
-                startActivity(intent)
-            }
 
-            if (alreadyVoted == "1"){
-                Toast.makeText(this@updateInfo, "Already Voted", Toast.LENGTH_LONG).show()
+            database.getReference("user").child(currentUser?.uid.toString()).get().addOnSuccessListener {
+                val current_info = it
+                name_prev = current_info.child("name").value.toString()
+                if (name_prev == "null") {
+                    Toast.makeText(applicationContext, "New User", Toast.LENGTH_LONG).show()
+                } else {
+                    class_prev = current_info.child("grade").value.toString()
+                    sec_prev = current_info.child("section").value.toString()
+                    alreadyVoted = current_info.child("voted").value.toString()
+                    name_entered.setText(name_prev)
+                    grade_entered.setText(class_prev)
+                    sec_entered.setText(sec_prev)
+                    if (alreadyVoted == "1") {
+                        val intent_alreadyvoted = Intent(this, AlreadyVoted::class.java)
+                        startActivity(intent_alreadyvoted)
+                    }
+                }
+
+
+                noIssues = if (grade > 12) {
+                    entergrade.setTextColor(warningred)
+                    false
+                } else {
+                    entergrade.setTextColor(primary_color)
+                    true
+                }
+                val email: String = currentUser?.email.toString()
+                val id: String = currentUser?.uid.toString()
+                if (noIssues) {
+                    uploadInfo(email, name, grade, sec, id, alreadyVoted)
+                    val intent = Intent(this, VoteScreen::class.java)
+                    startActivity(intent)
+                }
+
+                if (alreadyVoted == "1") {
+                    Toast.makeText(this@updateInfo, "Already Voted", Toast.LENGTH_LONG).show()
+                    update_button.isClickable = false
+                }
             }
         }
     }
