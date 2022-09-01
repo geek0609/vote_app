@@ -15,7 +15,7 @@
         android:layout_marginBottom="100dp"
         android:background="@drawable/round_shape_button"
         android:text="@string/get_started_button_text"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/material_on_primary_disabled"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,15 +39,15 @@
 
     <ImageView
         android:id="@+id/SplashImage"
-        android:layout_width="355dp"
-        android:layout_height="314dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/ballot_box_icon_description"
         android:src="@drawable/ballot_box"
-        app:tint="@color/colorFontPrimary"
         app:layout_constraintBottom_toTopOf="@+id/get_started_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        android:contentDescription="@string/ballot_box_icon_description" />
+        app:layout_constraintVertical_bias="0.537"
+        app:tint="@color/design_default_color_on_primary" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

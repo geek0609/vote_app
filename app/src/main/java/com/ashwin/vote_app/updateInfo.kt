@@ -68,6 +68,7 @@ class updateInfo : AppCompatActivity() {
             val entergrade: TextView =  findViewById<TextView>(R.id.entergrade)
             val grade:Int = grade_entered.text.toString().toInt()
             val sec = sec_entered.text.toString()
+            Toast.makeText(this@updateInfo, "hmm sus", Toast.LENGTH_LONG).show()
 
             database.getReference("user").child(currentUser?.uid.toString()).get().addOnSuccessListener {
                 val current_info = it
@@ -116,6 +117,7 @@ class updateInfo : AppCompatActivity() {
 
     fun uploadInfo(email:String, name:String, grade:Int, section:String, id:String, alreadyVoted:String){
         Toast.makeText(applicationContext, getString(R.string.SignInToast)+ "TESTMODE:EMAIL HIDDEN", Toast.LENGTH_LONG).show()
+        Toast.makeText(this@updateInfo, "hmm very sus", Toast.LENGTH_LONG).show()
         val DBRef = database.getReference("user")
         val user = User(email, name, grade, section, alreadyVoted)
         DBRef.child(id).setValue(user)
