@@ -10,6 +10,9 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.auth.api.signin.GoogleSignInOptionsExtension
+import com.google.firebase.FirebaseApp
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
@@ -22,6 +25,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        FirebaseApp.initializeApp(/*context=*/this)
+        val firebaseAppCheck = FirebaseAppCheck.getInstance()
+        firebaseAppCheck.installAppCheckProviderFactory(
+            SafetyNetAppCheckProviderFactory.getInstance()
+        )
+
         val button:Button = findViewById(R.id.get_started_button)
 
         mAuth = FirebaseAuth.getInstance()
