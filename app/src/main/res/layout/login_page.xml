@@ -52,7 +52,7 @@
     <Button
         android:id="@+id/signout_button"
         android:layout_width="125dp"
-        android:layout_height="34dp"
+        android:layout_height="54dp"
         android:background="@drawable/round_shape_button"
         android:text="@string/signout"
         android:textColor="@color/colorPrimary"

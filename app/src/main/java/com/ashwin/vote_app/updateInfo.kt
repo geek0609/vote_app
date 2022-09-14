@@ -3,6 +3,8 @@ package com.ashwin.vote_app
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.os.PersistableBundle
 import android.util.Log
 import android.widget.Button
@@ -18,6 +20,72 @@ import com.google.firebase.database.collection.LLRBNode
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import org.w3c.dom.Text
+import java.io.IOException
+import java.io.InputStream
+import java.io.OutputStream
+import java.net.InetAddress
+import java.net.InetSocketAddress
+import java.net.ServerSocket
+import java.net.Socket
+import java.util.concurrent.Executors
+
+
+//class ServerClass() :Thread(){
+//
+//    lateinit var serverSocket: ServerSocket
+//    lateinit var inputStream: InputStream
+//    lateinit var  outputStream: OutputStream
+//    lateinit var socket: Socket
+//
+//
+//
+//    override fun run() {
+//        try {
+//            serverSocket = ServerSocket(8888)
+//            socket = serverSocket.accept()
+//            inputStream =socket.getInputStream()
+//            outputStream = socket.getOutputStream()
+//        }catch (ex:IOException){
+//            ex.printStackTrace()
+//        }
+//
+//        val executors = Executors.newSingleThreadExecutor()
+//        val handler = Handler(Looper.getMainLooper())
+//        executors.execute(Runnable{
+//            kotlin.run {
+//                val buffer = ByteArray(1024)
+//                var byte:Int
+//                while (true){
+//                    try {
+//                        byte =  inputStream.read(buffer)
+//                        if(byte > 0){
+//                            var finalByte = byte
+//                            handler.post(Runnable{
+//                                kotlin.run {
+//                                    var tmpMeassage = String(buffer,0,finalByte)
+//
+//                                    Log.i("Server class","$tmpMeassage")
+//                                }
+//                            })
+//
+//                        }
+//                    }catch (ex:IOException){
+//                        ex.printStackTrace()
+//                    }
+//                }
+//            }
+//        })
+//    }
+//
+//    fun write(byteArray: ByteArray){
+//        try {
+//            Log.i("Server write","$byteArray sending")
+//            outputStream.write(byteArray)
+//        }catch (ex:IOException){
+//            ex.printStackTrace()
+//        }
+//    }
+//}
 
 class updateInfo : AppCompatActivity() {
 
@@ -39,6 +107,8 @@ class updateInfo : AppCompatActivity() {
         val grade_entered: EditText = findViewById<EditText>(R.id.grade)
         val name_entered: EditText= findViewById<EditText>(R.id.name)
         val sec_entered: EditText = findViewById<EditText>(R.id.section)
+        val FPID: EditText = findViewById<EditText>(R.id.fpid)
+
         database.getReference("user").child(currentUser?.uid.toString()).get().addOnSuccessListener {
             val current_info = it
             name_prev = current_info.child("name").value.toString()
@@ -68,7 +138,10 @@ class updateInfo : AppCompatActivity() {
             val entergrade: TextView =  findViewById<TextView>(R.id.entergrade)
             val grade:Int = grade_entered.text.toString().toInt()
             val sec = sec_entered.text.toString()
-            Toast.makeText(this@updateInfo, "hmm sus", Toast.LENGTH_LONG).show()
+            val mFPID = FPID.text.toString()
+            // Toast.makeText(this@updateInfo, "hmm sus", Toast.LENGTH_LONG).show()
+
+
 
             database.getReference("user").child(currentUser?.uid.toString()).get().addOnSuccessListener {
                 val current_info = it
@@ -117,7 +190,7 @@ class updateInfo : AppCompatActivity() {
 
     fun uploadInfo(email:String, name:String, grade:Int, section:String, id:String, alreadyVoted:String){
         Toast.makeText(applicationContext, getString(R.string.SignInToast)+ "TESTMODE:EMAIL HIDDEN", Toast.LENGTH_LONG).show()
-        Toast.makeText(this@updateInfo, "hmm very sus", Toast.LENGTH_LONG).show()
+        // Toast.makeText(this@updateInfo, "hmm very sus", Toast.LENGTH_LONG).show()
         val DBRef = database.getReference("user")
         val user = User(email, name, grade, section, alreadyVoted)
         DBRef.child(id).setValue(user)

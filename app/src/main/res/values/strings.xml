@@ -11,6 +11,7 @@
     <string name="wrong_email_warning">Email ID is wrong or does not belong to School</string>
     <string name="Start">Start</string>
     <string name="Update_Info">Update</string>
+    <string name="Update_FP">WIP</string>
     <string name="UpdateInfo_heading">UPDATE YOUR\nINFORMATION</string>
     <string name="entername">Name :</string>
     <string name="entername_hint">Enter your name</string>

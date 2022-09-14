@@ -15,7 +15,7 @@
         android:layout_marginBottom="100dp"
         android:background="@drawable/round_shape_button"
         android:text="@string/get_started_button_text"
-        android:textColor="@color/material_on_primary_disabled"
+        android:textColor="@color/colorPrimary"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
