@@ -39,8 +39,8 @@
 
     <ImageView
         android:id="@+id/SplashImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="144pt"
+        android:layout_height="144pt"
         android:contentDescription="@string/ballot_box_icon_description"
         android:src="@drawable/ballot_box"
         app:layout_constraintBottom_toTopOf="@+id/get_started_button"
