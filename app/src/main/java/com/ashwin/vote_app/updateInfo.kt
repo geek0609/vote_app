@@ -104,10 +104,11 @@ class updateInfo : AppCompatActivity() {
         var name_prev: String
         var class_prev: String
         var sec_prev: String
+        var gr_prev: String
         val grade_entered: EditText = findViewById<EditText>(R.id.grade)
         val name_entered: EditText= findViewById<EditText>(R.id.name)
         val sec_entered: EditText = findViewById<EditText>(R.id.section)
-        val FPID: EditText = findViewById<EditText>(R.id.fpid)
+        val grNo: EditText = findViewById<EditText>(R.id.grNo)
 
         database.getReference("user").child(currentUser?.uid.toString()).get().addOnSuccessListener {
             val current_info = it
@@ -118,9 +119,11 @@ class updateInfo : AppCompatActivity() {
                 class_prev = current_info.child("grade").value.toString()
                 sec_prev = current_info.child("section").value.toString()
                 alreadyVoted = current_info.child("voted").value.toString()
+                gr_prev = current_info.child("grNumber").value.toString()
                 name_entered.setText(name_prev)
                 grade_entered.setText(class_prev)
                 sec_entered.setText(sec_prev)
+                grNo.setText(gr_prev)
                 if (alreadyVoted == "1") {
                     val intent_alreadyvoted = Intent(this, AlreadyVoted::class.java)
                     startActivity(intent_alreadyvoted)
@@ -138,7 +141,7 @@ class updateInfo : AppCompatActivity() {
             val entergrade: TextView =  findViewById<TextView>(R.id.entergrade)
             val grade:Int = grade_entered.text.toString().toInt()
             val sec = sec_entered.text.toString()
-            val mFPID = FPID.text.toString()
+            val grnumber = grNo.text.toString()
             // Toast.makeText(this@updateInfo, "hmm sus", Toast.LENGTH_LONG).show()
 
 
@@ -172,7 +175,7 @@ class updateInfo : AppCompatActivity() {
                 val email: String = currentUser?.email.toString()
                 val id: String = currentUser?.uid.toString()
                 if (noIssues) {
-                    uploadInfo(email, name, grade, sec, id, alreadyVoted)
+                    uploadInfo(email, name, grade, sec, id, alreadyVoted, grnumber.toInt())
                     val intent = Intent(this, VoteScreen::class.java)
                     startActivity(intent)
                 }
@@ -188,17 +191,16 @@ class updateInfo : AppCompatActivity() {
         finish()
     }
 
-    fun uploadInfo(email:String, name:String, grade:Int, section:String, id:String, alreadyVoted:String){
-        Toast.makeText(applicationContext, getString(R.string.SignInToast)+ "TESTMODE:EMAIL HIDDEN", Toast.LENGTH_LONG).show()
+    fun uploadInfo(email:String, name:String, grade:Int, section:String, id:String, alreadyVoted:String, grNumber:Int){
         // Toast.makeText(this@updateInfo, "hmm very sus", Toast.LENGTH_LONG).show()
         val DBRef = database.getReference("user")
-        val user = User(email, name, grade, section, alreadyVoted)
+        val user = User(email, name, grade, section, alreadyVoted, grNumber)
         DBRef.child(id).setValue(user)
     }
 }
 
 @IgnoreExtraProperties
-data class User(val email: String, val name: String, val grade: Int, val section: String, val voted:String) {
+data class User(val email: String, val name: String, val grade: Int, val section: String, val voted:String, val grNumber: Int) {
     // Null default values create a no-argument default constructor, which is needed
     // for deserialization from a DataSnapshot.
 }

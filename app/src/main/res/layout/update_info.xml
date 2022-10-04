@@ -104,7 +104,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:layout_marginStart="20sp"
-            android:text="@string/Update_FP"
+            android:text="@string/enterGRNumber"
             android:textSize="30sp"
             android:layout_marginTop="40sp"
             android:textColor="@color/colorFontPrimary"
@@ -119,11 +119,10 @@
             android:textSize="30sp"
             android:layout_marginStart="20sp"
             android:layout_marginEnd="20sp"
-            android:hint="@string/Update_FP"
-            android:id="@+id/fpid"
-            android:inputType="textCapCharacters"
-            android:maxLength="1"
-            android:digits="A, B, C, D, E, F, G, H"/>
+            android:hint="@string/enterGRNumber_hint"
+            android:id="@+id/grNo"
+            android:inputType="number"
+            android:maxLength="7"/>
 
 
         <Button

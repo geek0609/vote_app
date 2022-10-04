@@ -11,7 +11,6 @@
     <string name="wrong_email_warning">Email ID is wrong or does not belong to School</string>
     <string name="Start">Start</string>
     <string name="Update_Info">Update</string>
-    <string name="enterGRNumber">GR Number :</string>
     <string name="UpdateInfo_heading">UPDATE YOUR\nINFORMATION</string>
     <string name="entername">Name :</string>
     <string name="entername_hint">Enter your name</string>
@@ -19,6 +18,8 @@
     <string name="entersection_hint">Enter your section</string>
     <string name="entergrade">Class : </string>
     <string name="entergrade_hint">Enter your class</string>
+    <string name="enterGRNumber">GR Number :</string>
+    <string name="enterGRNumber_hint">Enter your GR Number</string>
     <string name="Email_Preview">Your Email is:</string>
     <string name="Close_Reopen">If this is not you, click Sign Out</string>
     <string name="notOrg">This Email does not belong to School</string>
