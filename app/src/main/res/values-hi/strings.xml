@@ -20,7 +20,7 @@
     <string name="entergrade_hint">अपनी कक्षा दर्ज करें</string>
     <string name="Email_Preview">अपना ईमेल दर्ज करें:</string>
     <string name="Close_Reopen">यदि यह आप नहीं हैं, तो साइन आउट पर क्लिक करें</string>
-    <string name="notISWK">यह ईमेल विद्यालय का नहीं है</string>
+    <string name="notOrg">यह ईमेल विद्यालय का नहीं है</string>
     <string name="signout">साइन आउट करें</string>
     <string name="SignInToast">Signing in as\n</string>
     <string name="votePage">अपना मत डालें</string>

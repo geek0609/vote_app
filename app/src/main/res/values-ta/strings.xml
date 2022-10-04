@@ -20,7 +20,7 @@
     <string name="entergrade_hint">உங்கள் வகுப்பு நுழையுங்கள்</string>
     <string name="Email_Preview">உங்கள் பயனர்பெயர்:</string>
     <string name="Close_Reopen">இது நீங்கள் இல்லையென்றால், வெளியேறு என்பதைக் கிளிக் செய்யவும்</string>
-    <string name="notISWK">இந்த மின்னஞ்சல் பள்ளிக்கு சொந்தமானது அல்ல</string>
+    <string name="notOrg">இந்த மின்னஞ்சல் பள்ளிக்கு சொந்தமானது அல்ல</string>
     <string name="signout">வெளியேறு</string>
     <string name="SignInToast">உள்நுழைக \n</string>
     <string name="votePage">உங்கள் வாக்கை அளியுங்கள்</string>

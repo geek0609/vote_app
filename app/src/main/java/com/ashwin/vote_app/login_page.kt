@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -23,6 +22,8 @@ class login_page : AppCompatActivity() {
     private lateinit var googleSignInClient: GoogleSignInClient
     private var isloggedin: Boolean = false
     private lateinit var mail_id : String
+    private val needOrgSuffix: Boolean = false
+    private val orgSuffix: String = ""
 
     companion object{
         private const val RC_SIGN_IN = 120
@@ -48,11 +49,10 @@ class login_page : AppCompatActivity() {
             if (!isloggedin) {
                 signIn()
                 val text_view = findViewById<TextView>(R.id.textView2)
-                text_view.text = "Working on it...."
+                text_view.text = getString(R.string.workingOnIt)
             } else
             {
                 val updootinfo = Intent(this, updateInfo::class.java)
-                Toast.makeText(applicationContext,  "TESTMODE:EMAIL HIDDEN" , Toast.LENGTH_LONG).show()
                 startActivity(updootinfo)
             }
 
@@ -111,17 +111,21 @@ class login_page : AppCompatActivity() {
                     val text_view = findViewById<TextView>(R.id.textView2)
                     if (user != null) {
                         text_view.text = user.email.toString()
-                        if (!user.email.toString().endsWith("@iswkoman.com")){
-                            Log.w("SignInActivity", "signInWithCredential:not ISWK Org")
-                            val text_view = findViewById<TextView>(R.id.textView2)
-                            var displayedText  = StringBuilder()
-                            displayedText.append(getString(R.string.Email_Preview)).append("\n").append("TESTMODE: EMAIL HIDDEN").append("\n").append(getString(R.string.notISWK)).append("\n").append(getString(R.string.Close_Reopen))
+                        val userEmail = user.email.toString()
+                        var userEmailBelongsToOrg = true
+                        if (needOrgSuffix) {
+                            userEmailBelongsToOrg = userEmail.endsWith(orgSuffix)
+                        }
+                        val text_view = findViewById<TextView>(R.id.textView2)
+                        val displayedText  = StringBuilder()
+
+                        if (!userEmailBelongsToOrg){
+                            Log.w("SignInActivity", "signInWithCredential:not Org")
+                            displayedText.append(getString(R.string.Email_Preview)).append("\n").append(userEmail).append("\n").append(getString(R.string.notOrg)).append("\n").append(getString(R.string.Close_Reopen))
                             text_view.text = displayedText
                         } else{
                             Log.v("SignInActivity", "Successfully authorised")
-                            val text_view = findViewById<TextView>(R.id.textView2)
-                            var displayedText  = StringBuilder()
-                            displayedText.append(getString(R.string.Email_Preview)).append("\n").append("TESTMODE: EMAIL HIDDEN").append("\n").append(getString(R.string.Close_Reopen))
+                            displayedText.append(getString(R.string.Email_Preview)).append("\n").append(userEmail).append("\n").append(getString(R.string.Close_Reopen))
                             text_view.text = displayedText
                             val otaButton:Button = findViewById(R.id.otp_button)
                             otaButton.text = getString(R.string.Start)

@@ -4,14 +4,14 @@
     <string name="get_started_button_text">Get Started</string>
     <string name="ballot_box_icon_description">Ballot Box</string>
     <string name="login_text">Login</string>
-    <string name="email">Sign into google with School Email ID</string>
+    <string name="email">Sign into google with Organization Email ID</string>
     <string name="otp">Sign In</string>
     <string name="otp_success">OTP Sent, Check your Email</string>
     <string name="otp_check">Verify</string>
     <string name="wrong_email_warning">Email ID is wrong or does not belong to School</string>
     <string name="Start">Start</string>
     <string name="Update_Info">Update</string>
-    <string name="Update_FP">WIP</string>
+    <string name="enterGRNumber">GR Number :</string>
     <string name="UpdateInfo_heading">UPDATE YOUR\nINFORMATION</string>
     <string name="entername">Name :</string>
     <string name="entername_hint">Enter your name</string>
@@ -21,7 +21,7 @@
     <string name="entergrade_hint">Enter your class</string>
     <string name="Email_Preview">Your Email is:</string>
     <string name="Close_Reopen">If this is not you, click Sign Out</string>
-    <string name="notISWK">This Email does not belong to School</string>
+    <string name="notOrg">This Email does not belong to School</string>
     <string name="signout">Sign Out</string>
     <string name="SignInToast">Signing in as\n</string>
     <string name="votePage">CAST YOUR VOTE</string>
@@ -31,4 +31,5 @@
     <string name="alreadyVotedWarn">You have already voted!\nWait for reset by Admin</string>
     <string name="voteRecorded">Your Vote is\nSuccessfully Recorded</string>
     <string name="checkDesc">CheckMark</string>
+    <string name="workingOnIt">Working on it....</string>
 </resources>
